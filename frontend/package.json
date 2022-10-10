@@ -1,0 +1,25 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stack de développement frontend",
+  "author": {
+    "name": "Simon-Olivier Desautels"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "cssnano": "^5.1.13",
+    "gulp-postcss": "^9.0.1",
+    "gulp-terser": "^2.1.0",
+    "postcss": "^8.4.17"
+  }
+}

@@ -1,0 +1,56 @@
+/*
+-----SETTINGS-----
+Used with preprocessors and contain font, colors definitions, etc.
+*/
+
+
+@use "./settings/fonts.scss";
+/*
+-----TOOLS-----
+Globally used mixins and functions. 
+It’s important not to output any CSS in the first 2 layers.
+*/
+
+/*
+-----GENERIC-----
+Reset and/or normalize styles, box-sizing definition, etc. 
+This is the first layer which generates actual CSS.
+*/
+
+@use "./generic/normalize.scss";
+@use "./generic/reset.scss";
+
+/*
+-----ELEMENTS-----
+Styling for bare HTML elements (like H1, A, etc.). 
+These come with default styling from the browser so we can redefine them here.
+*/
+
+@use "./elements/body.scss";
+@use "./elements/headings.scss";
+@use "./elements/links.scss";
+@use "./elements/text.scss";
+@use "./elements/nav.scss";
+@use "./elements/ul.scss";
+
+/*
+-----OBJECTS-----
+Class-based selectors which define undecorated design patterns,
+for example the media object known from OOCSS
+*/
+
+
+/*
+-----COMPONENTS-----
+Specific UI components. This is where most of our work takes place.
+We often compose UI components of Objects and Components
+*/
+@use "./components/nav-item.scss";
+@use "./components/wrapper.scss";
+
+/*
+-----UTILITIES-----
+Utilities and helper classes with ability to override anything which goes before
+in the triangle, e.g. hide helper class
+*/
+

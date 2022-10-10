@@ -1,0 +1,25 @@
+// STYLE DE BASE DU WRAPPER
+
+// .page-flow{
+//     overflow: hidden;
+// }
+
+.wrapper{
+  max-width: calc(100% - 2rem);
+  margin: 2rem auto 0 auto;
+}
+
+
+// @media screen and (max-width: $vw-medium) {
+
+//     .wrapper {
+//         max-width: 1200px;
+//     }
+// }
+
+// @media screen and (max-width: $vw-thin) {
+
+//     .wrapper {
+//         max-width: calc(100% - 40px);
+//     }
+// }

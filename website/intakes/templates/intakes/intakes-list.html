@@ -13,7 +13,8 @@
 
 {% for meal, details in meals.items %}
 <h2>{{meal}}</h2>
-<ul>
+
+<ul class="macros">
   {% for type, value in details.resume.items %}
   <li>{{type}}: {{value}}</li>
   {% empty %}
