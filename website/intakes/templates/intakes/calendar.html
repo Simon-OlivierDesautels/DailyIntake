@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block title %}Today's intakes{% endblock title %}
+{% load humanize %} 
+{% block summary %}The calendar from all your past intakes{% endblock summary %} 
+{% block content %}
+{{calendar|safe}}
+ {% endblock content %}

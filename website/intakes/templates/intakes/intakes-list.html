@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}Today's intakes{% endblock title %}
+{% load humanize %} {% block summary %}This is your intakes for the
+{{date|naturalday }}{% endblock summary %} {% block content %}
+<h1>{{date|naturalday }}</h1>
+
+<p>{{day_resume.calories}} calories</p>
+
+<ul>
+  <li>{{day_resume.proteins}} proteins</li>
+  <li>{{day_resume.carbs}} carbs</li>
+  <li>{{day_resume.fats}} fats</li>
+</ul>
+
+{% for meal, details in meals.items %}
+<h2>{{meal}}</h2>
+<ul>
+  {% for type, value in details.resume.items %}
+  <li>{{type}}: {{value}}</li>
+  {% empty %}
+  <li>No macros yet.</li>
+  {% endfor %}
+</ul>
+<ul>
+  {% for intake, macros in details.list.items %}
+  <li>{{ intake }}</li>
+  <ul>
+    {% for type, name in macros.items %}
+    <li>{{type}}: {{name}}</li>
+    {% endfor %}
+  </ul>
+  {% empty %}
+  <li>No intakes yet.</li>
+  {% endfor %}
+</ul>
+{% endfor %} {% endblock content %}
