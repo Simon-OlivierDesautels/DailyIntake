@@ -1,63 +1,15 @@
-class Accordion {
-  constructor($el) {
-    this.$el = $el;
-    this.$title = this.$el.querySelector('[data-title]');
-    this.$content = this.$el.querySelector('[data-content]');
-    this.isOpen = false;
-    this.height = 0;
+import Accordion from "./components/Accordion";
+import ComponentFactory from "./ComponentFactory";
 
-    this.events();
-    this.close();
+class Main {
+  constructor() {
+    this.init();
   }
 
-  events() {
-    this.$title.addEventListener('click', this.handleClick.bind(this));
-    this.$content.addEventListener('transitionend', this.handleTransition.bind(this));
-  }
-
-  handleClick() {
-    this.height = this.$content.scrollHeight;
-
-    if (this.isOpen) {
-      this.close();
-    } else {
-      this.open();
-    }
-
-    console.log("hello");
-  }
-
-  close() {
-    this.isOpen = false;
-    this.$el.classList.remove('is-active');
-    this.$content.style.maxHeight = `${this.height}px`;
-
-    setTimeout(() => {
-      this.$content.style.maxHeight = `${0}px`;
-    }, 1);
-  }
-
-  open() {
-    this.isOpen = true;
-    this.$el.classList.add('is-active');
-    this.$el.classList.remove('is-hidden');
-    this.$content.style.maxHeight = `${0}px`;
-
-    setTimeout(() => {
-      this.$content.style.maxHeight = `${this.height}px`;
-    }, 1);
-  }
-
-  handleTransition() {
-    if (!this.isOpen) {
-      this.$el.classList.add('is-hidden');
-    }
-
-    this.$content.style.maxHeight = '';
+  init() {
+    new ComponentFactory();
+    // new Accordion(document.querySelector('[data-accordion]'));
   }
 }
 
-/*
- * Instantiate a new Accordion
- */
-new Accordion(document.querySelector('[data-accordion]'));
+new Main();

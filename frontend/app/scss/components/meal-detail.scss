@@ -1,0 +1,59 @@
+@import "../settings/color.scss";
+
+.meal {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+
+  &__header {
+    padding: 1rem;
+    background-color: white;
+    color: $color-black;
+    transition: 0.2s linear;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &.is-active &__header {
+    background-color: $color-blue-dark;
+    color: white;
+    transition: 0.2s linear;
+  }
+
+  &__title h3 {
+    margin: 0;
+  }
+
+  &__detail {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+  }
+  
+  &__macros{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0.5rem;
+  }
+
+  &__intakes {
+    overflow: hidden;
+
+    will-change: max-height;
+    transition: 0.2s max-height;
+    padding: 0 1rem;
+
+    li {
+      ul {
+        display: grid;
+        grid-auto-flow: column;
+      }
+    }
+  }
+
+  &.is-hidden &__intakes {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+  }
+}

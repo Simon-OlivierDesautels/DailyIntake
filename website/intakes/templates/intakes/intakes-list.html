@@ -28,24 +28,30 @@
 
 <div class="meals-list">
   {% for meal, details in meals.items %}
-  <div class="meal" data-accordion>
-    <h2 class="meal__title" data-title>{{meal}}</h2>
+  <div class="meal" data-component="Accordion">
+    <div class="meal__header" data-header>
+      <h2 class="meal__title">{{meal}}</h2>
 
-    <ul>
-      {% for type, value in details.resume.items %}
-      <li>{{type}}: {{value}}</li>
-      {% empty %}
-      <li>No macros yet.</li>
-      {% endfor %}
-    </ul>
-
+      <ul class="meal__detail">
+        <li class="macros__macro macros__macro--calories">{{details.resume.calories}} cal </li>
+        <ul class="meal__macros">
+          {% for type, value in details.resume.items %}
+          {% if type != "calories" %}<li class="macros__macro macros__macro--{{type}}">{{value}}g</li>{% endif %}
+          {% empty %}
+        </ul>
+        <li>No macros yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
     <ul class="meal__intakes" data-content>
       {% for intake, macros in details.list.items %}
-      <li>{{ intake }}</li>
-      <ul>
-        {% for type, name in macros.items %}
-        <li>{{type}}: {{name}}</li>
+      <li><p>{{ intake }}</p>
+      <ul class"meal__macros">
+        <li class="macros__macro macros__macro--calories">{{macros.calories}} cal </li>
+        {% for type, value in macros.items %}
+          {% if type != "calories" %}<li class="macros__macro macros__macro--{{type}}">{{value}}g</li>{% endif %}
         {% endfor %}
+      </li>
       </ul>
       {% empty %}
       <li>No intakes yet.</li>

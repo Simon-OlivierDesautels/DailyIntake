@@ -47,7 +47,8 @@ We often compose UI components of Objects and Components
 */
 @use "./components/wrapper.scss";
 @use "./components/nav-item.scss";
-@use "./components/meal-list.scss";
+@use "./components/meals-list.scss";
+@use "./components/meal-detail.scss";
 @use "./components/macros.scss";
 
 /*

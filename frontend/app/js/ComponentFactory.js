@@ -12,13 +12,14 @@ export default class ComponentFactory {
   constructor() {
     this.componentInstances = [];
     this.componentList = {
-      Carousel,
-      Header,
-      Scrolly,
-      Modal,
-      Video,
-      Snackbar,
-      Form,
+      // Carousel,
+      // Header,
+      // Scrolly,
+      // Modal,
+      // Video,
+      // Snackbar,
+      // Form,
+      Accordion
     };
     this.init();
   }
@@ -31,6 +32,7 @@ export default class ComponentFactory {
       const componentName = element.dataset.component;
 
       if (this.componentList[componentName]) {
+        console.log(element);
         const instance = new this.componentList[componentName](element);
         this.componentInstances.push(instance);
       } else {
