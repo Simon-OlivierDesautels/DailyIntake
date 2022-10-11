@@ -7,6 +7,10 @@
 .wrapper{
   max-width: calc(100% - 2rem);
   margin: 2rem auto 0 auto;
+
+  display: grid;
+  grid-auto-flow: row;
+  row-gap:1rem;
 }
 
 

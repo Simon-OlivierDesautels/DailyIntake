@@ -17,7 +17,7 @@
 
  .nav__item:hover{
   transition:ease-out 0.3s;
-  background-color: $color-accent;
+  // background-color: $color-accent;
   img {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(306deg)
       brightness(106%) contrast(101%);

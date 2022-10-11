@@ -3,8 +3,10 @@ const sass = require("gulp-sass")(require("sass"));
 const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
 const terser = require("gulp-terser");
-const browsersync = require("browser-sync").create();
 const pathToDjango = "../website/static";
+const webpack =  require('webpack');
+const gulpWebpack =require('webpack-stream');
+const plumber =require('gulp-plumber');
 
 // Sass Task
 function scssTask() {
@@ -21,21 +23,6 @@ function jsTask() {
     .pipe(dest(`${pathToDjango}/js`, { sourcemaps: "." }));
 }
 
-// Browsersync Tasks
-// function browsersyncServe(cb) {
-//   browsersync.init({
-//     notify: false,
-//     port: 8000,
-//     proxy: "localhost:8000",
-//   });
-//   cb();
-// }
-
-function browsersyncReload(cb) {
-  browsersync.reload();
-  cb();
-}
-
 // Watch Task
 function watchTask() {
   watch(
@@ -43,6 +30,14 @@ function watchTask() {
     series(scssTask, jsTask/*, browsersyncReload*/)
   );
 }
+
+
+function scripts() {
+  return src("app/js/**/*.js")
+    .pipe(gulpWebpack(require('./app/js/webpack.config.js'), webpack))
+    .pipe(dest(`${pathToDjango}/js`));
+}
+
 
 // Default Gulp task
 exports.default = series(
